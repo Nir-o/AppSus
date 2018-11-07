@@ -1,0 +1,64 @@
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.keeper-header {
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    height: 75px;
+    text-align: center;
+}
+
+.logo {
+    float: left;
+    font-size: 2.5em;
+    margin: 20px;
+}
+
+.search-txt {
+    height: 50%;
+    width: 250px;
+    margin: 15px;
+    font-size: 1.3em;
+}
+
+.create-note {
+    margin: 0 auto;
+    height: 250px;
+    width: 60%;
+    background-color: blanchedalmond;
+    text-align: center;
+    color: navy;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.create-title {
+    text-align: center;
+    height: 30px;
+}
+
+.create-body {
+    text-align: center;
+    height: 50px;
+}
+
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note {
+    background-color: paleturquoise;
+    text-align: center;
+    padding: 10px;
+}
