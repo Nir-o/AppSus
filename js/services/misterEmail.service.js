@@ -20,8 +20,7 @@ function query() {
 function createEmails() {
     return [{
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Kasim gadban',
+        from: 'Kasim gadban',
         subject: "first email",
         body: "this is my first email",
         isRead: false,
@@ -30,8 +29,7 @@ function createEmails() {
 
     {
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Nir tal',
+        from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
         isRead: true, 
@@ -39,8 +37,7 @@ function createEmails() {
     },
     {
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Kasim gadban',
+        from: 'Kasim gadban',
         subject: "first email",
         body: "this is my first email",
         isRead: false,
@@ -48,8 +45,7 @@ function createEmails() {
     },
     {
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Kasim gadban',
+        from: 'Kasim gadban',
         subject: "first email",
         body: "this is my first email",
         isRead: false,
@@ -57,8 +53,7 @@ function createEmails() {
     },
     {
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Kasim gadban',
+        from: 'Kasim gadban',
         subject: "first email",
         body: "this is my first email",
         isRead: false,
@@ -66,8 +61,7 @@ function createEmails() {
     },
     {
         id: utilService.makeId(),
-        from: 'kasim.gadban@gmail.com',
-        name: 'Kasim gadban',
+        from: 'Kasim gadban',
         subject: "first email",
         body: "this is my first email",
         isRead: false,
@@ -77,8 +71,16 @@ function createEmails() {
 
 }
 
+function getEmailById(emailId) {
+    return storageService.load(KEY)
+        .then(mails => {
+           return mails.find(email => email.id === emailId);   
+        })
+}
+
 
 
 export default {
     query,
+    getEmailById,
 }

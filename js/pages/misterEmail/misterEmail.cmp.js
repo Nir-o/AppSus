@@ -9,10 +9,10 @@ export default {
             <header class = "mister-email-header">
                 <h1>misterEmail</h1>
             </header>
-            <!-- <keep-alive></keep-alive> -->
-            <button @click = "filterReadUnread">Read</button>
-            <button @click = "filterReadUnread">UnRead</button>
+            <button>Read</button>
+            <button >UnRead</button>
             <email-list :emails="emails"></email-list>
+            <email-details></email-details>
         </section>
     `,
 
@@ -32,14 +32,15 @@ export default {
         selectEmail(emailId) {
             this.selectedEmail = this.emails.find(email => email.id === emailId);
             this.email.isSelected = true;
-            console.log('selectedBook', this.selectedEmail);
+            console.log('selectedEmail', this.selectedEmail);
         },
 
-        filterReadUnread(){}
+        
     },
 
-components: {
-    emailList,
-    emailDetails
+
+    components: {
+        emailList,
+        emailDetails
     }
 }
