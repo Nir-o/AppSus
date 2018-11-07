@@ -1,5 +1,5 @@
 import misterEmail from './pages/misterEmail/misterEmail.cmp.js'
-import keeperHome from './pages/keeper-home.js'
+import keeperHome from './pages/misskeeper/keeper-home.js'
 import home from './pages/home.js'
 
 
