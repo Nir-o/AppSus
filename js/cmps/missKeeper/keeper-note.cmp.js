@@ -1,5 +1,5 @@
 'use strict'
-import missKeeperService from '../services/missKeeper.service.js'
+import missKeeperService from '../../services/missKeeper.service.js'
 import noteToolbar from './note-toolbar.cmp.js';
 
 
@@ -11,7 +11,7 @@ export default {
             <h3>{{note.title}}</h3>
             <h4>{{note.body}}</h4>
             <h4>Created: {{note.created}}</h4>
-            <note-toolbar></note-toolbar>
+            <note-toolbar :note="note"></note-toolbar>
         </li>
     `,
     data() {

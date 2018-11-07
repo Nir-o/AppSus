@@ -13,8 +13,10 @@ export default {
     `,
     data() {
         return {
+            note: {
             title: '',
             body: '',
+            }
         }
     },
     components: {

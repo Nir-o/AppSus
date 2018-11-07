@@ -1,9 +1,9 @@
 'use strict';
 
-import keeperHeader from '../cmps/keeper-header.cmp.js';
-import keeperCreate from '../cmps/keeper-create.cmp.js';
-import keeperNote from '../cmps/keeper-note.cmp.js';
-import keeperService from '../services/misskeeper.service.js';
+import keeperHeader from '../../cmps/missKeeper/keeper-header.cmp.js';
+import keeperCreate from '../../cmps/missKeeper/keeper-create.cmp.js';
+import keeperNote from '../../cmps/missKeeper/keeper-note.cmp.js';
+import keeperService from '../../services/misskeeper.service.js';
 
 export default {
     name: 'keeper-home',
