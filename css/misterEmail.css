@@ -1,0 +1,51 @@
+*{
+    list-style: none;
+    box-sizing: border-box;
+    /* margin: 0 auto; */
+}
+
+.mister-email{
+    display: flex;
+    flex-direction: row;
+}
+
+.mister-email-header{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.email-list{
+    border: 2px solid black;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    background-color: #615d5d;
+    padding: 2px;
+    width: 400px;
+    /* height: 70vh; */
+}
+
+.email-preview{
+    border: 1px solid black;
+    margin: 10px;
+    box-shadow: 0 0 2px 2px inset rgba(255, 0, 0, 0.747);
+    height: 60px;
+}
+
+.email-preview-items{
+    margin-top: -10px;
+    color: black;
+    margin-bottom: 2px;
+}
+.sender-name{
+    margin-left: 10px;
+}
+
+.email-subject{
+    margin-left: 50px;
+    margin-top: -20px;
+}
+
+.email-preview:hover{
+    box-shadow: 0 0 2px 2px inset rgba(51, 255, 0, 0.747);
+}
