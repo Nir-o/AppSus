@@ -1,15 +1,15 @@
 
-
 function store(key, any) {
     localStorage[key] = JSON.stringify(any);
+    return Promise.resolve();
 }
 
 function load(key) {
     var str = localStorage[key] || 'null';
-    return JSON.parse(str);
+    return Promise.resolve(JSON.parse(str));
 }
 
-export const storageService = {
+export default {
     store,
     load
 }

@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>AppSus</title>
 </head>
+
 <body>
-    
+
+    <div id='app'>
+        <header>
+            <h1>AppSus</h1>
+            <router-link exact to="/">Home</router-link> 
+            <router-link to="/misterEmail">misterEmail</router-link> 
+            <router-link to="/misterKeeper">missKeeper</router-link> 
+        </header>
+        <router-view></router-view>
+    </div>
+
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
