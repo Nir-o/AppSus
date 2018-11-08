@@ -4,31 +4,81 @@
 }
 
 .mail-container{
-    display: grid;
+     display: grid;
      grid-template-columns:  1fr 2fr;
      grid-template-areas: 'features features';
-     gap: 10px;         
+     gap: 10px;        
+     background-color: #bbb3b3; 
+     border: 2px solid black;
+}
+
+.mail-search{
+    position: absolute;
+    top: -7px;
+    width: 100%;
+    left: 2px;
 }
 
 .mail-features{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
     grid-area: features;
+    background-color: #bbb3b3;
     height: 60px;
+    font-size: 35px;
+    padding: 15px;
+}
+
+.mail-features a{
+    cursor: pointer;
+}
+
+.email-details{
+    padding: 10px;
+    height: 100vh;
 }
 .mister-email-header{
     margin: 0 auto;
     text-align: center;
 }
-
-.email-list{
-    border: 2px solid black;
-    display: grid;
-    grid-template-rows: 30px 1fr;
-    gap: 2px;
-    background-color: #615d5d;
-    padding: 2px;
-    width: 100%;
+.emial-list-container{
+    position: relative;
 }
 
+.email-list{
+    /* border: 2px solid black; */
+    /* display: grid; */
+    /* grid-template-rows: auto; */
+    /* gap: 2px; */
+    display: flex;
+    flex-direction: column;
+    background-color: #bbb3b3;
+    padding: 2px;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    /* padding-top: 20px; */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 
 
 .email-preview-items{
@@ -45,6 +95,8 @@
     margin-top: -20px;
 }
 
+
+
 .email-preview{
     border: 1px solid black;
     box-shadow: 0 0 2px 2px inset rgba(255, 0, 0, 0.747);
@@ -52,11 +104,18 @@
 }
 
 .email-preview:hover{
-    box-shadow: 0 0 2px 2px inset rgba(51, 255, 0, 0.747);
+    box-shadow: 0 0 2px 2px inset rgba(0, 183, 255, 0.747);
 }
 
 .email-preview-read{
     border: 1px solid black;
     box-shadow: 0 0 2px 2px inset rgba(51, 255, 0, 0.747);
     height: 60px;
+}
+
+.read-Unread-delete-btns{
+    margin-top: 20px;
+    margin-right: 5px;
+    float: right;
+    cursor: pointer;
 }

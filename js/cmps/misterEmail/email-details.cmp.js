@@ -30,6 +30,8 @@ export default {
         this.loadEmailData();
     },
 
+
+
     watch: {
         '$route.params.emailId': function () {
             this.loadEmailData();
