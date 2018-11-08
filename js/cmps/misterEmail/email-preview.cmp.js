@@ -4,7 +4,7 @@
 export default {
     props: ['email'],
     template: `
-        <section class = "email-preview" >
+        <section :class = " email.isRead ? 'email-preview-read' : 'email-preview'" >
         <router-link :to="mailRoute"> 
             <div class = "email-preview-items">
                 <h4 class = "sender-name">📧 {{email.from}}</h4>
@@ -16,14 +16,6 @@ export default {
     computed:{
         mailRoute(){
             return `/misterEmail/${this.email.id}`
-        }
+        },
     },
-
-    
-    // watch: {
-    //     '$route.params.emailId' : function (){
-    //         this.loadEmailData()
-    //     }
-    // },
-    
 }

@@ -12,7 +12,7 @@ export default {
     `,
     data() {
         return {
-            email: [],
+            email: null,
         }
     },
     methods: {
@@ -21,11 +21,19 @@ export default {
             misterEmailService.getEmailById(emailId)
                 .then(email => {
                     this.email = email
+                    // this.$router.push(`/misterEmail/${emailId}`)
                 })
         }
     },
 
     created() {
         this.loadEmailData();
+    },
+
+    watch: {
+        '$route.params.emailId': function () {
+            this.loadEmailData();
+        }
     }
+
 }

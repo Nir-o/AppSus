@@ -9,16 +9,23 @@ export default {
             <header class = "mister-email-header">
                 <h1>misterEmail</h1>
             </header>
-            <button>Read</button>
-            <button >UnRead</button>
-            <email-list :emails="emails"></email-list>
-            <email-details></email-details>
+            
+            <div class = "mail-container">
+                <div class="mail-features">
+                    <button>inbox</button>
+                    <button>Read</button>
+                    <button>UnRead</button>
+                    <input type="search">
+                 </div>
+                 <email-list :emails="emails"></email-list>
+                 <router-view></router-view>
+            </div>
         </section>
     `,
 
     data() {
         return {
-            emails: [],
+            emails: null,
             selectedEmail: {},
         }
     },
@@ -35,7 +42,7 @@ export default {
             console.log('selectedEmail', this.selectedEmail);
         },
 
-        
+
     },
 
 

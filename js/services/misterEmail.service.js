@@ -31,7 +31,7 @@ function createEmails() {
         id: utilService.makeId(),
         from: 'Nir tal',
         subject: "second email",
-        body: "this is my second email",
+        body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deserunt optio repellat consequuntur sed ipsum quia quae. Rerum aliquam voluptatibus, numquam, atque, suscipit molestias animi laborum corporis nesciunt quisquam saepe!",
         isRead: true, 
         sentAt: Date.now()
     },
@@ -65,6 +65,22 @@ function createEmails() {
         subject: "first email",
         body: "this is my first email",
         isRead: false,
+        sentAt: Date.now()
+    },
+    {
+        id: utilService.makeId(),
+        from: 'Nir tal',
+        subject: "second email",
+        body: "this is my second email",
+        isRead: true, 
+        sentAt: Date.now()
+    },
+    {
+        id: utilService.makeId(),
+        from: 'Nir tal',
+        subject: "second email",
+        body: "this is my second email",
+        isRead: true, 
         sentAt: Date.now()
     },
 ]

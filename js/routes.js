@@ -8,8 +8,10 @@ import keeperAddEdit from './cmps/misskeeper/keeper-createEdit.cmp.js'
 const routes = [
     {path: '/', component: home},
     // {path: '/about', component: about},
-    {path: '/misterEmail', component: misterEmail},
-    {path: '/misterEmail/:emailId',component: emailDetails},
+    {path: '/misterEmail', component: misterEmail,children: [
+      {path: ':emailId',component: emailDetails},
+    ]
+  },
     {path: '/missKeeper', component: keeperHome},
     {path: '/missKeeper/:noteId?', component: keeperAddEdit},
   ];
