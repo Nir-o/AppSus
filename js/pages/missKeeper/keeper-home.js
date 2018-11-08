@@ -12,7 +12,7 @@ export default {
         <section class="keeper-home">
             <h1>MissKeeper</h1>
             <keeper-header @set-filter="setFilter"></keeper-header>
-            <keeper-createEdit></keeper-createEdit> 
+            <keeper-createEdit @update="query"></keeper-createEdit> 
             <notes-list :notes="pinnedNotes"></notes-list>
             <notes-list :notes="upinnedNotes"></notes-list>
 
@@ -42,16 +42,21 @@ export default {
                 .filter(note => note.title.includes(this.filterBy.title))
         },
         pinnedNotes() {
-            return this.notes.filter(note => note.pinned);
+            return this.notes.filter(note => note.isPinned);
         },
         upinnedNotes() {
-            return this.notes.filter(note => !note.pinned);
+            return this.notes.filter(note => !note.isPinned);
         }
     },
     methods: {
         setFilter(filter) {
             this.filterBy = Object.assign({}, filter);
         },
+        query() {
+            keeperService.query()
+            .then(notes => this.notes = notes)
+            console.log('notes list created ', this.notes);
+        }
     },
     components: {
         keeperHeader,

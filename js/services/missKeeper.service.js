@@ -3,6 +3,13 @@ import utilService from './util.service.js';
 
 const KEY = 'missKeeperKey';
 
+export default {
+    query,
+    createNote,
+    getById,
+    deleteNote,
+    updateNote,
+}
 
 function query() {
     return storageService.load(KEY)
@@ -17,16 +24,8 @@ function query() {
 }
 
 function createNote(noteObj) {
-    // var newNote = {
-    //     title: noteObj.title,
-    //     body: noteObj.body,
-    //     img: noteObj.img,
-    //     bgColor: noteObj.bgColor,
-    //     pinned: false,
-    //     created: new Date(),
-    // };
     return storageService.load(KEY)
-        .then(notes =>{
+        .then(notes => {
             notes.push(noteObj);
             storageService.store(KEY, notes);
             console.log('Notes: ', notes);
@@ -34,15 +33,30 @@ function createNote(noteObj) {
         })
 }
 
-
 function getById(noteId) {
     return storageService.load(KEY)
-    .then(notes => {
-        return notes.find(note => note.id === noteId);
-    })
+        .then(notes => {
+            return notes.find(note => note.id === noteId);
+        })
 }
 
+function deleteNote(noteObj) {
+    return storageService.load(KEY)
+        .then(notes => {
+            var noteIdx = notes.findIndex(note => note.id === noteObj.id);
+            notes.splice(noteIdx, 1);
+            storageService.store(KEY, notes);
+        })
+}
 
+function updateNote(noteObj) {
+    return storageService.load(KEY)
+        .then(notes => {
+            var noteIdx = notes.findIndex(note => note.id === noteObj.id);
+            notes.splice(noteIdx, 1, noteObj);
+            storageService.store(KEY, notes);
+        })
+}
 
 function createNotes() {
     var notesHc = [{
@@ -50,7 +64,7 @@ function createNotes() {
         body: "This is a hard coded example for a note",
         img: false,
         bgColor: "white",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -59,7 +73,7 @@ function createNotes() {
         body: "Wife's needs her coffee..",
         img: false,
         bgColor: "orange",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -68,16 +82,16 @@ function createNotes() {
         body: "1 + 1 = 11",
         img: false,
         bgColor: "yellow",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
     {
-        title: "Note example",
+        title: "This note is pinned",
         body: "This is a hard coded example for a note",
         img: false,
         bgColor: "white",
-        pinned: false,
+        isPinned: true,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -86,7 +100,7 @@ function createNotes() {
         body: "Wife's needs her coffee..",
         img: false,
         bgColor: "orange",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -95,7 +109,7 @@ function createNotes() {
         body: "1 + 1 = 11",
         img: false,
         bgColor: "yellow",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -104,7 +118,7 @@ function createNotes() {
         body: "This is a hard coded example for a note Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus consequuntur minima animi aut quidem placeat possimus cum porro accusantium non.",
         img: false,
         bgColor: "white",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
@@ -113,30 +127,25 @@ function createNotes() {
         body: "Wife's needs her coffee..",
         img: false,
         bgColor: "orange",
-        pinned: false,
+        isPinned: false,
         created: new Date(),
         id: utilService.makeId(),
     },
     {
-        title: "javascript loic",
-        body: "1 + 1 = 11",
+        title: "expecting to be pinned",
+        body: "But in a good way",
         img: false,
         bgColor: "yellow",
-        pinned: false,
+        isPinned: true,
         created: new Date(),
         id: utilService.makeId(),
     },
-    
+
     ];
     return notesHc
 }
 
 
 
-export default {
-    query,
-    createNote,
-    getById,
 
-}
 

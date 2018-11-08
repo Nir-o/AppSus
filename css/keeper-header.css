@@ -74,6 +74,12 @@ ul {
 .create-edit-container {
     width: 60%;
     margin: 0 auto;
+    border: 1px solid black;
+}
+
+.create-edit-container:hover {
+    box-shadow: 5px 5px 10px red;
+    background-color: turquoise;
 }
 
 .toolbar-container {

@@ -16,7 +16,12 @@ export default {
     return {
     }
   },
-  components:{
+  mounted() {
+    console.log('notes ', this.notes);
+    
+  },
+
+   components:{
     keeperNote,
   }
 }
