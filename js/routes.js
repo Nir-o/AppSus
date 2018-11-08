@@ -7,8 +7,10 @@ import home from './pages/home.js'
 const routes = [
     {path: '/', component: home},
     // {path: '/about', component: about},
-    {path: '/misterEmail', component: misterEmail},
-    {path: '/misterEmail/:emailId',component: emailDetails},
+    {path: '/misterEmail', component: misterEmail,children: [
+      {path: ':emailId',component: emailDetails},
+    ]
+  },
     {path: '/missKeeper', component: keeperHome},
   ];
 
