@@ -1,4 +1,5 @@
-import storageService from './storage.service.js'
+import storageService from './storage.service.js';
+import utilService from './util.service.js';
 
 const KEY = 'missKeeperKey';
 
@@ -33,6 +34,16 @@ function createNote(noteObj) {
         })
 }
 
+
+function getById(noteId) {
+    return storageService.load(KEY)
+    .then(notes => {
+        return notes.find(note => note.id === noteId);
+    })
+}
+
+
+
 function createNotes() {
     var notesHc = [{
         title: "Note example",
@@ -41,6 +52,7 @@ function createNotes() {
         bgColor: "white",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "Need to buy milk",
@@ -49,6 +61,7 @@ function createNotes() {
         bgColor: "orange",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "javascript loic",
@@ -57,6 +70,7 @@ function createNotes() {
         bgColor: "yellow",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "Note example",
@@ -65,6 +79,7 @@ function createNotes() {
         bgColor: "white",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "Need to buy milk",
@@ -73,6 +88,7 @@ function createNotes() {
         bgColor: "orange",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "javascript loic",
@@ -81,6 +97,7 @@ function createNotes() {
         bgColor: "yellow",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "Note example",
@@ -89,6 +106,7 @@ function createNotes() {
         bgColor: "white",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "Need to buy milk",
@@ -97,6 +115,7 @@ function createNotes() {
         bgColor: "orange",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     {
         title: "javascript loic",
@@ -105,6 +124,7 @@ function createNotes() {
         bgColor: "yellow",
         pinned: false,
         created: new Date(),
+        id: utilService.makeId(),
     },
     
     ];
@@ -116,5 +136,7 @@ function createNotes() {
 export default {
     query,
     createNote,
+    getById,
+
 }
 

@@ -6,23 +6,23 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function makeId(length=5) {
+function makeId(length = 5) {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  
+
     for (var i = 0; i < length; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-  
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
     return text;
-  }
+}
 
 function getCurrency(currencyCode) {
-    switch(currencyCode){
-        case 'ILS' : 
+    switch (currencyCode) {
+        case 'ILS':
             return '₪';
-        case 'EUR' : 
+        case 'EUR':
             return '€';
-        case 'USD' :
+        case 'USD':
             return '$';
         default:
             return '';

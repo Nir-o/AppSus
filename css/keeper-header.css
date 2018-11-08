@@ -1,10 +1,10 @@
 
-body {
+/* body {
     margin: 0;
     height: 100vh;
     width: 100%;
     box-sizing: border-box;
-}
+} */
 
 .keeper-header {
     background-color: lightgoldenrodyellow;
@@ -29,8 +29,7 @@ body {
 .create-note {
     margin: 0 auto;
     height: 250px;
-    width: 60%;
-    background-color: blanchedalmond;
+    width: 100%;
     text-align: center;
     color: navy;
     display: flex;
@@ -58,9 +57,63 @@ ul {
 }
 
 .note {
-    background-color: paleturquoise;
+    background-color: #afeeee;
     text-align: center;
     padding: 10px;
     border: 1px solid black;
     box-shadow: 3px 3px 5px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.note:hover {
+    box-shadow: 5px 5px 10px red;
+    background-color: turquoise;
+}
+
+.create-edit-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.toolbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.create-title {
+    background-color: transparent;
+    border: none;
+    font-size: 1.3em;
+}
+
+.create-body {
+    background-color: transparent;
+    border: none;
+    font-size: 1.1em;
+}
+
+button {
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 3px 3px 5px;
+    background-color: turquoise;
+}
+
+.color-picker {
+    border-radius: 100px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.color-picker:hover {
+    box-shadow: 3px 3px 5px;
+    background-color: turquoise;
 }
