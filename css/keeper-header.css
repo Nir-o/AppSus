@@ -113,6 +113,10 @@ button:hover {
     background-color: turquoise;
 }
 
+.pinned {
+    background-color: lightgreen;
+}
+
 .color-picker {
     border-radius: 100px;
     transition: 0.2s;
@@ -122,4 +126,13 @@ button:hover {
 .color-picker:hover {
     box-shadow: 3px 3px 5px;
     background-color: turquoise;
+}
+
+.hidden {
+    display: none;
+}
+
+#back-to-list {
+    text-align: center;
+
 }

@@ -59,6 +59,17 @@ function updateNote(noteObj) {
 }
 
 function createNotes() {
+
+    // var timeNow = new Date();
+    // var year = timeNow.getFullYear();    
+    // var month = timeNow.getMonth();        
+    // var day = timeNow.getDay();           
+    // var hours = timeNow.getHours();         
+    // var minutes = timeNow.getMinutes();      
+    // var seconds = timeNow.getSeconds();  
+    // var time = hours + ':' + minutes + ''
+
+
     var notesHc = [{
         title: "Note example",
         body: "This is a hard coded example for a note",
