@@ -58,7 +58,7 @@ export default {
                 img: this.note.img,
                 bgColor: this.note.bgColor,
                 isPinned: this.note.isPinned,
-                created: new Date(),
+                created: missKeeperService.timeNow(),
                 id: utilService.makeId(),
             };
             missKeeperService.createNote(noteObj)

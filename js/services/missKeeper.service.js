@@ -9,6 +9,7 @@ export default {
     getById,
     deleteNote,
     updateNote,
+    timeNow,
 }
 
 function query() {
@@ -58,17 +59,19 @@ function updateNote(noteObj) {
         })
 }
 
+function timeNow() {
+    var timeNow = new Date();
+    var year = timeNow.getFullYear();    
+    var month = timeNow.getMonth();        
+    var day = timeNow.getDay();           
+    var hours = timeNow.getHours();         
+    var minutes = timeNow.getMinutes();      
+    var time = hours + ':' + minutes + ' , ' + day + '/' + month + '/' + year;
+
+    return time
+}
+
 function createNotes() {
-
-    // var timeNow = new Date();
-    // var year = timeNow.getFullYear();    
-    // var month = timeNow.getMonth();        
-    // var day = timeNow.getDay();           
-    // var hours = timeNow.getHours();         
-    // var minutes = timeNow.getMinutes();      
-    // var seconds = timeNow.getSeconds();  
-    // var time = hours + ':' + minutes + ''
-
 
     var notesHc = [{
         title: "Note example",
@@ -76,7 +79,7 @@ function createNotes() {
         img: false,
         bgColor: "white",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -85,7 +88,7 @@ function createNotes() {
         img: false,
         bgColor: "orange",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -94,7 +97,7 @@ function createNotes() {
         img: false,
         bgColor: "yellow",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -103,7 +106,7 @@ function createNotes() {
         img: false,
         bgColor: "white",
         isPinned: true,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -112,7 +115,7 @@ function createNotes() {
         img: false,
         bgColor: "orange",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -121,7 +124,7 @@ function createNotes() {
         img: false,
         bgColor: "yellow",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -130,7 +133,7 @@ function createNotes() {
         img: false,
         bgColor: "white",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -139,7 +142,7 @@ function createNotes() {
         img: false,
         bgColor: "orange",
         isPinned: false,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
     {
@@ -148,7 +151,7 @@ function createNotes() {
         img: false,
         bgColor: "yellow",
         isPinned: true,
-        created: new Date(),
+        created: timeNow(),
         id: utilService.makeId(),
     },
 
