@@ -87,6 +87,9 @@ export default {
             this.$router.push('/misterEmail');
             this.unReadCount++;
         },
+        toggleMenu() {
+            document.body.classList.toggle('open');
+        }
 
     },
 

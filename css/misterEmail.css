@@ -51,12 +51,13 @@
     border: 2px solid black;
     margin-right: 3px;
 }
-.mister-email-header > h1{
+.mister-email-header{
     margin: 0 auto;
     text-align: center;
     background-color: rgb(46, 43, 43);
     font-family: 'Satisfy', cursive;
     color: rgb(27, 233, 72);
+
 }
 .emial-list-container{
     position: relative;
@@ -221,3 +222,18 @@
     font-size: 16px
 }
 
+@media (max-width: 570px){
+    .mail-container{
+        display: grid;
+        grid-template-columns:  1fr;
+        grid-template-areas: 'features ';
+    }
+    .mail-search{
+        top: -24px;
+        left: 0px;
+    }
+    .mail-features{
+        height: 70px;
+    }
+
+}
