@@ -12,17 +12,17 @@ export default {
     timeNow,
 }
 
-function query() {
+function query(filter = null) {
     return storageService.load(KEY)
         .then(notes => {
             if (!notes || !notes.length) {
                 notes = createNotes();
                 storageService.store(KEY, notes);
             }
-            return notes;
-            console.log('Notes: ', notes);
-            // if (!filter) return notes;
-            // else return notes.filter(notes => notes.title.toUpperCase().includes(filter.byTitle.toUpperCase()))
+            // return notes;
+            // console.log('Notes: ', notes);
+            if (!filter) return notes;
+            else return notes.filter(notes => notes.title.toUpperCase().includes(filter.byTitle.toUpperCase()))
             //             .filter(notes => notes.type.toUpperCase().includes(filter.byType.toUpperCase()),
 
             // )

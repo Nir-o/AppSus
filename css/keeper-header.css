@@ -28,13 +28,14 @@
 
 .create-note {
     margin: 0 auto;
-    height: 250px;
+    height: 400px;
     width: 100%;
     text-align: center;
     color: navy;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 ul {
@@ -75,6 +76,11 @@ ul {
     width: 60%;
     margin: 0 auto;
     border: 1px solid black;
+
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .create-edit-container:hover {
@@ -135,4 +141,9 @@ button:hover {
 #back-to-list {
     text-align: center;
 
+}
+
+.note-img {
+    max-width: 20rem;;
+    
 }

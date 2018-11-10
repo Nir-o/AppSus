@@ -8,19 +8,17 @@ export default {
         <div :class="getClass()" id="back-to-list">
             <router-link class="link" to="/missKeeper">Back to notes list</router-link>
         </div>
-        <div class="create-edit-container" :style="{ backgroundColor: note.bgColor}">
-            <div class="create-note">
-                <h1>Create a new note</h1>
-                <img class="note-img" v-show="note.img" :src="note.img" ref="img">
+        <div class="to-do-container" :style="{ backgroundColor: note.bgColor}">
+            <div class="create-to-do">
+                <h1>Create a to do list</h1>
                 <input class="create-title" type="text" v-model="note.title" placeholder="Title">
                 <input class="create-body" type="text" v-model="note.body" placeholder="Take a note...">
             </div>
             <div class="toolbar-container">
                 <input class="color-picker" v-model="note.bgColor" type="color" name="favcolor" value="#ff0000">
-                <input type="file" ref="imgAdd" @change="onImgAdd">
                 <button class="fas fa-thumbtack" type="button" @click="togglePin" title="pin"></button>
                 <button class="fas fa-trash-alt" type="button" @click="deleteNote" title="Delete"></button>
-                <button v-if="!note.id" type="button" @click="createNewNote">create note</button>
+                <button type="button" @click="createNewNote">create note</button>
                 <button :class="getClass()" type="button" @click="updateNote">Update note</button>
             </div>
         </div>
@@ -31,8 +29,9 @@ export default {
             note: {
                 title: '',
                 body: '',
+                todos: [],
                 bgColor: "#afeeee",
-                img: '',
+                img: null,
                 isPinned: false,
             }
         }
@@ -46,7 +45,7 @@ export default {
 
                     this.note = note
                 })
-        }    
+        }
     },
 
     methods: {
@@ -96,22 +95,7 @@ export default {
             return classToGive
             
         },
-        onImgAdd() {
-            var note = this.note
-            var img = this.$refs.img
-            var file = this.$refs.imgAdd.files[0]
-            var reader  = new FileReader();
-            
-            reader.addEventListener("load", function () {
-                note.img = reader.result;
-                img.src = note.img
-            }, false);
-
-            if (file) {
-              reader.readAsDataURL(file);
-            }
-            
-        },
+       
     },
     computed: {
     },

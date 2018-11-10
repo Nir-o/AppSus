@@ -15,12 +15,6 @@ export default {
             <keeper-createEdit @update="query"></keeper-createEdit> 
             <notes-list :notes="pinnedNotes"></notes-list>
             <notes-list :notes="upinnedNotes"></notes-list>
-
-                <!-- <div class="note-list">
-                    <ul v-for="note in notes">
-                        <keeper-note :notes="notes"></keeper-note>
-                    </ul> 
-                </div> -->
         </section>
     `,
     data() {
@@ -38,7 +32,7 @@ export default {
     computed: {
         notesToShow() {
             if (!this.filterBy) return this.note;
-            return this.books
+            return this.notes
                 .filter(note => note.title.includes(this.filterBy.title))
         },
         pinnedNotes() {
