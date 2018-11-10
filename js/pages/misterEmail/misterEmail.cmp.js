@@ -85,6 +85,7 @@ export default {
             this.emails.unshift(newEmail)
             misterEmailService.sendEmail(newEmail)
             this.$router.push('/misterEmail');
+            this.unReadCount++;
         },
 
     },
