@@ -1,4 +1,3 @@
-// import misterEmailService from '../../services/misterEmail.service.js';]
 import utilService from '../../services/util.service.js'
 
 export default {
@@ -8,7 +7,8 @@ export default {
             <input type="text" class="from-bar" v-model="email.from" placeholder="from:" >
             <input type="text" class="subject-bar" v-model="email.subject" placeholder="subject:">
             <textarea class="body-text" v-model="email.body" cols="30" rows="10"></textarea>
-            <button class="send-btn" type="submit">Send</button>
+            <!-- <a class="fas fa-paper-plane" @click =" goToCompose()"></a> -->
+            <button class="fas fa-paper-plane send-btn" type="submit">send</button>
         </form>
         </section>
     

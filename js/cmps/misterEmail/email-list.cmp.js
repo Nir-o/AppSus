@@ -5,10 +5,10 @@ import emailFilter from './email-filter.cmp.js'
 export default {
     props: ['emails'],
     template: `
-    <div class = "emial-list-container">
+    <div class = "emial-list-container" >
      <ul class='email-list'>
         <email-filter @filter-emails ='emitFilter' ></email-filter>
-        <li v-for = "email in emails">
+        <li v-for = "email in emails" >
              <email-preview  :email = "email" @delete-email="deleteEmail"></email-preview>
         </li>
     </ul>
@@ -22,6 +22,12 @@ export default {
         emitFilter(filter) {
             this.$emit('filter-emails', filter)
         },
+    },
+
+    computed: {
+        do() {
+            this.emails.unshift(emails)
+        }
     },
 
     components: {

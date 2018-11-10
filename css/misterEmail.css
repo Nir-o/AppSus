@@ -51,9 +51,12 @@
     border: 2px solid black;
     margin-right: 3px;
 }
-.mister-email-header{
+.mister-email-header > h1{
     margin: 0 auto;
     text-align: center;
+    background-color: rgb(46, 43, 43);
+    font-family: 'Satisfy', cursive;
+    color: rgb(27, 233, 72);
 }
 .emial-list-container{
     position: relative;
@@ -140,6 +143,10 @@
     color: rgba(255, 0, 0, 0.747);
 }
 
+.fa-paper-plane:hover{
+    color: rgba(17, 0, 255, 0.747);
+}
+
 .from-details{
     font-size: 15px;
     color: black;
@@ -162,6 +169,10 @@
 .noti-div{
     position: relative;
 }
+.noti-div-hide{
+    position: relative;
+    display: none;
+}
 .noti{
     position: absolute;
     top: -13px;
@@ -169,6 +180,44 @@
     color: black;
     font-size: 18px;
 }
-/* .email-details-date{
-    margin-left: 20px;
-} */
+
+.email-send{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    height: 100vh;
+    border: 2px solid black;
+    margin-right: 3px;
+}
+
+.from-bar ,.subject-bar{
+
+    background: linear-gradient(#cec2c2, rgba(249, 255, 250, 0.658));
+    border: 1px solid rgb(103, 180, 122);
+    border-radius: 5px;
+    color:black;
+    font-size: 14px;
+    padding: 2px ;
+    height: 23px;;
+    margin: 10px;
+}
+.from-bar::placeholder, .subject-bar::placeholder{
+    color: black;
+}
+
+.body-text{
+    background: linear-gradient(#cec2c2, rgba(249, 255, 250, 0.658));
+    border: 1px solid rgb(103, 180, 122);
+    border-radius: 5px;
+    color:black;
+    font-size: 14px;
+    padding: 2px ;
+    margin: 10px;
+}
+
+.send-btn{
+    height: 30px;
+    font-size: 16px
+}
+

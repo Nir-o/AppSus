@@ -32,7 +32,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deserunt optio repellat consequuntur sed ipsum quia quae. Rerum aliquam voluptatibus, numquam, atque, suscipit molestias animi laborum corporis nesciunt quisquam saepe!",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -72,7 +72,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -80,7 +80,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -97,7 +97,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deserunt optio repellat consequuntur sed ipsum quia quae. Rerum aliquam voluptatibus, numquam, atque, suscipit molestias animi laborum corporis nesciunt quisquam saepe!",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -137,7 +137,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -145,7 +145,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -162,7 +162,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deserunt optio repellat consequuntur sed ipsum quia quae. Rerum aliquam voluptatibus, numquam, atque, suscipit molestias animi laborum corporis nesciunt quisquam saepe!",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -202,7 +202,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -210,7 +210,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -227,7 +227,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deserunt optio repellat consequuntur sed ipsum quia quae. Rerum aliquam voluptatibus, numquam, atque, suscipit molestias animi laborum corporis nesciunt quisquam saepe!",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -267,7 +267,7 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
     {
@@ -275,17 +275,17 @@ function createEmails() {
         from: 'Nir tal',
         subject: "second email",
         body: "this is my second email",
-        isRead: true, 
+        isRead: true,
         sentAt: Date.now()
     },
-]
+    ]
 
 }
 
 function getEmailById(emailId) {
     return storageService.load(KEY)
         .then(mails => {
-           return mails.find(email => email.id === emailId);   
+            return mails.find(email => email.id === emailId);
         })
 }
 
@@ -298,12 +298,12 @@ function deleteEmail(emailId) {
         })
 }
 
-function renderEmailsByFilter(filter = null, readMails = null, unReadsMails = null) {
+function renderEmailsByFilter(filter = null, readMails = null, unReadMails = null) {
     let mailsToFilter;
-    if(unReadsMails)
-    mailsToFilter = Promise.resolve(unReadsMails)
-    else if(readMails) {
-        mailsToFilter = Promise.resolve(readMails) 
+    if (unReadMails) {
+        mailsToFilter = Promise.resolve(unReadMails)
+    } else if (readMails) {
+        mailsToFilter = Promise.resolve(readMails)
     } else {
         mailsToFilter = storageService.load(KEY);
     }
@@ -314,22 +314,22 @@ function renderEmailsByFilter(filter = null, readMails = null, unReadsMails = nu
                 storageService.store(KEY, emails);
             }
             if (filter === null || filter.by === null) return emails;
-            else{
-                    return emails.filter(email =>
-                    email.subject.toUpperCase().includes(filter.by.toUpperCase())||
-                    email.from.toUpperCase().includes(filter.by.toUpperCase())||
-                    email.body.toUpperCase().includes(filter.by.toUpperCase()) 
-                    )
-                }
+            else {
+                return emails.filter(email =>
+                    email.subject.toUpperCase().includes(filter.by.toUpperCase()) ||
+                    email.from.toUpperCase().includes(filter.by.toUpperCase()) ||
+                    email.body.toUpperCase().includes(filter.by.toUpperCase())
+                )
+            }
         })
 }
 
-function getInBox(){
-     return storageService.load(KEY)
+function getInBox() {
+    return storageService.load(KEY)
 }
 
 
-function sendEmail(newEmail){
+function sendEmail(newEmail) {
     return storageService.load(KEY)
         .then(emails => {
             emails.unshift(newEmail)

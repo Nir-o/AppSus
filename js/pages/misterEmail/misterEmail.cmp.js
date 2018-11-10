@@ -1,14 +1,13 @@
 import misterEmailService from '../../services/misterEmail.service.js'
 import emailList from '../../cmps/misterEmail/email-list.cmp.js'
 import emailDetails from '../../cmps/misterEmail/email-details.cmp.js'
-import emailCompose from '../../cmps/misterEmail/email-compose.cmp.js'
 import eventBus from '../../event-bus.js'
 
 export default {
     template: `
         <section class = "misterEmail" >
             <header class = "mister-email-header">
-                <h1>misterEmail</h1>
+                <h1 >misterEmail</h1>
             </header>
             <div class = "mail-container">
                 <div class="mail-features" >
@@ -21,7 +20,7 @@ export default {
                     </div>
                 </div>
                 <email-list :emails="emails" @delete-email="deleteEmail" @filter-emails="setFilter"></email-list>
-                <router-view @send-email="sendEmail"></router-view>
+                <router-view @send-email="sendEmail" ></router-view>
             </div>
         </section>
     `,
@@ -67,7 +66,7 @@ export default {
             this.emails = this.readEmails = this.emails.filter(mail => mail.isRead);
         },
         showUnReadEmails() {
-            this.emails = this.unReadEmails = this.emails.filter(mail => (!mail.isRead));
+            this.emails = this.unReadEmails = this.emails.filter(mail => !(mail.isRead));
         },
         showInBox() {
             this.emails = misterEmailService.getInBox()
@@ -83,11 +82,11 @@ export default {
                 });
         },
         sendEmail(newEmail) {
+            this.emails.unshift(newEmail)
             misterEmailService.sendEmail(newEmail)
-            misterEmailService.getInBox()
-                .then(emails => this.emails = emails)
             this.$router.push('/misterEmail');
         },
+
     },
 
     mounted() {
@@ -96,17 +95,8 @@ export default {
         });
     },
 
-    // watch: {
-    //     '$route.params.newEmail': function () {
-    //         misterEmailService.query()
-    //         .then(emails => this.emails = emails)
-    //     this.unReadCounter()
-    //     }
-    // },
-
     components: {
         emailList,
         emailDetails,
-        emailCompose
     }
 }
