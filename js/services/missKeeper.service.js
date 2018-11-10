@@ -19,7 +19,11 @@ function query() {
                 storageService.store(KEY, notes);
             }
             console.log('Notes: ', notes);
-            return notes;
+            if (!filter) return notes;
+            else return notes.filter(notes => notes.title.toUpperCase().includes(filter.byTitle.toUpperCase()))
+                        .filter(notes => notes.type.toUpperCase().includes(filter.byType.toUpperCase()),
+
+            )
         })
 }
 

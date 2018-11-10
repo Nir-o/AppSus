@@ -1,6 +1,7 @@
 *{
     list-style: none;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .mail-container{
@@ -17,6 +18,16 @@
     top: -7px;
     width: 100%;
     left: 2px;
+    background: linear-gradient(#1b1b1b, rgba(119, 126, 121, 0.658));
+    border: 1px solid rgb(103, 180, 122);
+    border-radius: 5px;
+    color:black;
+    padding: 2px ;
+    height: 23px;;
+}
+
+.mail-search::placeholder{
+    color: black;
 }
 
 .mail-features{
@@ -37,6 +48,8 @@
 .email-details{
     padding: 10px;
     height: 100vh;
+    border: 2px solid black;
+    margin-right: 3px;
 }
 .mister-email-header{
     margin: 0 auto;
@@ -47,10 +60,6 @@
 }
 
 .email-list{
-    /* border: 2px solid black; */
-    /* display: grid; */
-    /* grid-template-rows: auto; */
-    /* gap: 2px; */
     display: flex;
     flex-direction: column;
     background-color: #bbb3b3;
@@ -58,11 +67,10 @@
     width: 100%;
     height: 100vh;
     overflow-y: auto;
-    /* padding-top: 20px; */
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 2px;
 }
 
 /* Track */
@@ -119,3 +127,48 @@
     float: right;
     cursor: pointer;
 }
+
+.fa-inbox:hover{
+    color: white;
+}
+
+.fa-envelope-open:hover{
+    color: rgba(51, 255, 0, 0.747);
+}
+
+.fa-envelope:hover{
+    color: rgba(255, 0, 0, 0.747);
+}
+
+.from-details{
+    font-size: 15px;
+    color: black;
+}
+
+.email-details-from{
+    color: rgb(61, 61, 61);
+}
+
+.fa-envelope{
+    position: relative;
+}
+.fa-circle{
+    position: absolute;
+    left: 28px;
+    top: -5px;
+    color: red;
+    font-size: 25px;
+}
+.noti-div{
+    position: relative;
+}
+.noti{
+    position: absolute;
+    top: -13px;
+    left: 4px;
+    color: black;
+    font-size: 18px;
+}
+/* .email-details-date{
+    margin-left: 20px;
+} */

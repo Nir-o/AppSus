@@ -5,6 +5,8 @@ export default {
     template: `
         <section class="email-details" v-if="email">
             <h1>{{email.subject}}</h1>
+            <h4 class = "email-details-from">from: <span class = "from-details"> {{email.from}}</span></h4>
+            <h5 class = "email-details-date">{{timeFormat(email.sentAt)}}</h5>
             <hr>
             <p>{{email.body}}</p>
         </section>
@@ -21,8 +23,10 @@ export default {
             misterEmailService.getEmailById(emailId)
                 .then(email => {
                     this.email = email
-                    // this.$router.push(`/misterEmail/${emailId}`)
                 })
+        },
+        timeFormat(time) {
+            return moment(time).format("DD/MM/YYYY HH:MM")
         }
     },
 

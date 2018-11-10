@@ -298,15 +298,6 @@ function deleteEmail(emailId) {
         })
 }
 
-function showReadEmails(emailId){
-    return storageService.load(KEY)
-        .then(emails => {
-            var email = emails.find(email => email.id === emailId);
-            email.isRead = true
-            return storageService.store(KEY, emails);
-        })
-}
-
 function renderEmailsByFilter(filter = null, readMails = null, unReadsMails = null) {
     let mailsToFilter;
     if(unReadsMails)
@@ -333,10 +324,26 @@ function renderEmailsByFilter(filter = null, readMails = null, unReadsMails = nu
         })
 }
 
+function getInBox(){
+     return storageService.load(KEY)
+}
+
+
+function sendEmail(newEmail){
+    return storageService.load(KEY)
+        .then(emails => {
+            emails.unshift(newEmail)
+            return storageService.store(KEY, emails);
+        })
+}
+
+
 export default {
     query,
     getEmailById,
     deleteEmail,
-    showReadEmails,
-    renderEmailsByFilter
+    renderEmailsByFilter,
+    getInBox,
+    sendEmail,
+    createEmails
 }

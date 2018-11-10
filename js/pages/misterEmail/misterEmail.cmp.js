@@ -1,7 +1,8 @@
 import misterEmailService from '../../services/misterEmail.service.js'
 import emailList from '../../cmps/misterEmail/email-list.cmp.js'
 import emailDetails from '../../cmps/misterEmail/email-details.cmp.js'
-
+import emailCompose from '../../cmps/misterEmail/email-compose.cmp.js'
+import eventBus from '../../event-bus.js'
 
 export default {
     template: `
@@ -9,34 +10,44 @@ export default {
             <header class = "mister-email-header">
                 <h1>misterEmail</h1>
             </header>
-            
             <div class = "mail-container">
                 <div class="mail-features" >
+                    <a class="fas fa-paper-plane" @click =" goToCompose()"></a>
                     <a class="fas fa-inbox" @click = "showInBox()"></a>
                     <a class="fas fa-envelope-open"   @click="showReadEmails()"></a>
-                    <a class="fas fa-envelope" @click="showUnReadEmails()"></a>
-                 </div>
-                 <email-list :emails="emails" @delete-email="deleteEmail" @filter-emails="setFilter"></email-list>
-                 <router-view ></router-view>
+                    <div class = "noti-div">
+                        <a class="fas fa-envelope" @click="showUnReadEmails()"></a>
+                        <div :class="[unReadCount === 0 ? 'fa-circle-hide' : 'fa-circle', 'fas']"><h1 class = "noti">{{unReadCount}}</h1></div>
+                    </div>
+                </div>
+                <email-list :emails="emails" @delete-email="deleteEmail" @filter-emails="setFilter"></email-list>
+                <router-view @send-email="sendEmail"></router-view>
             </div>
         </section>
     `,
+
 
     data() {
         return {
             emails: null,
             filter: null,
             readEmails: null,
-            unReadEmails: null
+            unReadEmails: null,
+            unReadCount: 0
         }
     },
+
 
     created() {
         misterEmailService.query()
             .then(emails => this.emails = emails)
+        this.unReadCounter()
     },
 
     methods: {
+        goToCompose() {
+            this.$router.push(`/misterEmail/newEmail`);
+        },
         setFilter(filter) {
             this.filter = { ...filter };
             misterEmailService.renderEmailsByFilter(this.filter, this.readEmails, this.unReadEmails)
@@ -45,9 +56,12 @@ export default {
 
         deleteEmail(emailId) {
             this.emails = this.emails.filter(email => {
+                if (email.id === emailId && !email.isRead)
+                    this.unReadCount--;
                 return email.id !== emailId;
             });
-            misterEmailService.deleteEmail(emailId);
+            misterEmailService.deleteEmail(emailId)
+            this.$router.push(`/misterEmail/`);
         },
         showReadEmails() {
             this.emails = this.readEmails = this.emails.filter(mail => mail.isRead);
@@ -56,14 +70,43 @@ export default {
             this.emails = this.unReadEmails = this.emails.filter(mail => (!mail.isRead));
         },
         showInBox() {
-            this.emails = misterEmailService.query()
+            this.emails = misterEmailService.getInBox()
                 .then(emails => (this.emails = emails));
-        }
+        },
+        unReadCounter() {
+            this.unReadCount = 0;
+            misterEmailService.getInBox()
+                .then(emails => {
+                    emails.forEach(email => {
+                        if (!email.isRead) this.unReadCount++;
+                    });
+                });
+        },
+        sendEmail(newEmail) {
+            misterEmailService.sendEmail(newEmail)
+            misterEmailService.getInBox()
+                .then(emails => this.emails = emails)
+            this.$router.push('/misterEmail');
+        },
     },
 
+    mounted() {
+        eventBus.$on('unReadCount', data => {
+            this.unReadCount += data;
+        });
+    },
+
+    // watch: {
+    //     '$route.params.newEmail': function () {
+    //         misterEmailService.query()
+    //         .then(emails => this.emails = emails)
+    //     this.unReadCounter()
+    //     }
+    // },
 
     components: {
         emailList,
-        emailDetails
+        emailDetails,
+        emailCompose
     }
 }

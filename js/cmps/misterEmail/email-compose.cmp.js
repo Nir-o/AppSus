@@ -1,0 +1,39 @@
+// import misterEmailService from '../../services/misterEmail.service.js';]
+import utilService from '../../services/util.service.js'
+
+export default {
+    template: `
+        <section>
+        <form class="email-send" @submit.prevent="sendEmail(email)">
+            <input type="text" class="from-bar" v-model="email.from" placeholder="from:" >
+            <input type="text" class="subject-bar" v-model="email.subject" placeholder="subject:">
+            <textarea class="body-text" v-model="email.body" cols="30" rows="10"></textarea>
+            <button class="send-btn" type="submit">Send</button>
+        </form>
+        </section>
+    
+    `,
+    data() {
+        return {
+            email: {
+                id: '',
+                from: '',
+                subject: '',
+                body: '',
+                isRead: false,
+                sentAt: Date.now()
+
+            },
+        }
+    },
+
+    methods: {
+        sendEmail(newEmail) {
+            this.email.id = utilService.makeId();
+            this.email.isRead = false;
+            this.email.sentAt = Date.now();
+            this.$emit('send-email', newEmail)
+            this.$router.push('/misterEmail')
+        },
+    },
+}

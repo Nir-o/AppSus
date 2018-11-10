@@ -1,4 +1,5 @@
 import emailPreview from './email-preview.cmp.js'
+import emailFilter from './email-filter.cmp.js'
 
 
 export default {
@@ -6,31 +7,25 @@ export default {
     template: `
     <div class = "emial-list-container">
      <ul class='email-list'>
-        <input class = "mail-search" type="search" placeholder = "search" v-model="filter.by" @input="emitFilter">
+        <email-filter @filter-emails ='emitFilter' ></email-filter>
         <li v-for = "email in emails">
-             <email-preview :email = "email" @delete-email="deleteEmail"></email-preview>
+             <email-preview  :email = "email" @delete-email="deleteEmail"></email-preview>
         </li>
     </ul>
     </div>
     `,
-
-    data() {
-        return {
-            filter: { by: '' }
-        }
-    },
-
     methods: {
         deleteEmail(emailId) {
             this.$emit('delete-email', emailId)
         },
 
-        emitFilter() {
-            this.$emit('filter-emails', this.filter)
-        }
+        emitFilter(filter) {
+            this.$emit('filter-emails', filter)
+        },
     },
 
     components: {
         emailPreview,
+        emailFilter,
     }
 }
