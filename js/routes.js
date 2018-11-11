@@ -4,8 +4,8 @@ import emailDetails from './cmps/misterEmail/email-details.cmp.js'
 import emailCompose from './cmps/misterEmail/email-compose.cmp.js'
 
 
-import keeperHome from './pages/misskeeper/keeper-home.js'
-import keeperAddEdit from './cmps/misskeeper/keeper-createEdit.cmp.js'
+import keeperHome from './pages/missKeeper/keeper-home.js'
+import keeperAddEdit from './cmps/missKeeper/keeper-createEdit.cmp.js'
 
 
 const routes = [
