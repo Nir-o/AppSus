@@ -3,7 +3,7 @@
 import keeperHeader from '../../cmps/missKeeper/keeper-header.cmp.js';
 import keeperCreateEdit from '../../cmps/missKeeper/keeper-createEdit.cmp.js';
 import keeperNote from '../../cmps/missKeeper/keeper-note.cmp.js';
-import keeperService from '../../services/misskeeper.service.js';
+import keeperService from '../../services/missKeeper.service.js';
 import notesList from '../../cmps/missKeeper/notes-list.cmp.js';
 
 export default {
